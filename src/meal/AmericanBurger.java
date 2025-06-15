@@ -25,10 +25,4 @@ public class AmericanBurger extends Meal
     {
         return "American Burger with chicken patty, mint, and fresh vegetables.";
     }
-
-    @Override
-    protected void pack() 
-    {
-        
-    }
 }

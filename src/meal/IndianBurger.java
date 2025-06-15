@@ -25,10 +25,4 @@ public class IndianBurger extends Meal
     {
         return "Indian Burger with tandoori chicken patty, mint chutney, and fresh vegetables.";
     }
-
-    @Override
-    protected void pack() 
-    {
-        
-    }
 }

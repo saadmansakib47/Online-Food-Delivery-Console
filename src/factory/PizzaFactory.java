@@ -6,7 +6,7 @@ public class PizzaFactory implements MealFactory
 {
 
     @Override
-    public Meal createMeal() 
+    public Meal createMeal(String type) 
     {
         return new ItalianPizza();
     }    

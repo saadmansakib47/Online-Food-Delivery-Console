@@ -6,8 +6,14 @@ public abstract class Meal
     public void prepareMeal()
     {
         prepareBase();
+        waitforNextStep();
+
         addIngredients();
+        waitforNextStep();
+
         cook();
+        waitforNextStep();
+
         pack();
     }
 
@@ -21,4 +27,18 @@ public abstract class Meal
     }
 
     public abstract String getDescription();
+
+    public void waitforNextStep()
+    {
+        try 
+        {
+            Thread.sleep(1000); 
+        } 
+        catch (InterruptedException e) 
+        {
+            System.out.println("An error occurred while waiting for the next step.");
+        }
+    }
+
+    
 }

@@ -25,10 +25,4 @@ public class AmericanPasta extends Meal
     {
         return "American Pasta with creamy Alfredo sauce, grilled chicken, and mushrooms.";
     }
-
-    @Override
-    protected void pack() 
-    {
-
-    }
 }

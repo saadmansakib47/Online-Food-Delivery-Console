@@ -25,10 +25,4 @@ public class ItalianPizza extends Meal
     {
         return "Italian Pizza with tomato sauce, mozzarella cheese, and fresh basil.";
     }
-
-    @Override
-    protected void pack() 
-    {
-        
-    }
 }

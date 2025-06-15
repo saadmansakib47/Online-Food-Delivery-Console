@@ -16,6 +16,18 @@ public class ToppingFactoryProducer
         {
             return new FriesFactory();
         } 
+        else if (toppingName.equalsIgnoreCase("Salad")) 
+        {
+            return new SaladFactory();
+        } 
+        else if (toppingName.equalsIgnoreCase("Mushroom")) 
+        {
+            return new MushroomFactory();
+        } 
+        else if (toppingName.equalsIgnoreCase("SoftDrink")) 
+        {
+            return new SoftDrinkFactory();
+        }  
         else 
         {
             throw new IllegalArgumentException("Unknown Topping: " + toppingName);
