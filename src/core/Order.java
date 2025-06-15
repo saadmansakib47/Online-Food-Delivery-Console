@@ -1,26 +1,62 @@
 package core;
 
-public class Order 
-{
-    private OrderStatus status;
+import state.OrderState;
+import state.PlacedState;
+import observer.Observer;
+import observer.Subject;
 
+import java.util.ArrayList;
+import java.util.List;
+
+public class Order implements Subject
+{
+    private OrderState state;
+    private List<Observer> observers = new ArrayList<>();
+    
     public Order() 
     {
-        this.status = OrderStatus.PLACED;
+        this.state = new PlacedState();
     }
 
-    public OrderStatus getStatus() 
+    public void nextState() 
     {
-        return status;
+        state.next(this);
+        notifyObservers();
     }
 
-    public void updateStatus(OrderStatus status) 
+    public OrderState getState() 
     {
-        this.status = status;
+        return state;
+    }
+
+    public void setState(OrderState state) 
+    {
+        this.state = state;
+    }
+
+    @Override
+    public void registerObserver(Observer observer) 
+    {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) 
+    {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() 
+    {
+        for (Observer observer : observers) 
+        {
+            observer.update(this);
+        }
     }
 
     public void printStatus() 
     {
-        System.out.println("Current Order Status: " + status);
+        System.out.println("Current Order Status: " + state.getStatus());
     }
 }
