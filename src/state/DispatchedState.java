@@ -6,7 +6,7 @@ public class DispatchedState implements OrderState
     @Override
     public void next(Order order) 
     {
-        System.out.println("Order is now delivered...");
+        System.out.println("Order is now being delivered...");
         order.setState(new DeliveredState());
     }
 
