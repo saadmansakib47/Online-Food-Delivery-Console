@@ -3,21 +3,24 @@ package core;
 import meal.Meal;
 import observer.DeliverySystem;
 import decorator.ExtraCheese;
-import factory.PizzaFactory;
+import factory.FactoryProducer;
+import factory.MealFactory;
 
 public class Main 
 {
     public static void main(String[] args) 
     {
-        //This time Pizza factory only creates Italian Pizza 
-        PizzaFactory pizzaFactory = new PizzaFactory();
-        Meal meal = pizzaFactory.createMeal();
+        String category = "Burger"; 
+        String type = "Indian";   
+        MealFactory factory = FactoryProducer.getFactory(category);
 
-        //Extra Cheese Topping 
+        Meal meal = factory.createMeal(type);
+
         meal = new ExtraCheese(meal);
 
-         System.out.println("Order: " + meal.getDescription());
+        System.out.println("Order: " + meal.getDescription());
 
+        // Order processing 
         Order order = new Order();
         DeliverySystem deliverySystem = new DeliverySystem();
         order.registerObserver(deliverySystem);
