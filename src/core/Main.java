@@ -16,21 +16,26 @@ public class Main
         //Extra Cheese Topping 
         meal = new ExtraCheese(meal);
 
-        System.out.println("Order: " + meal.getDescription());
+         System.out.println("Order: " + meal.getDescription());
 
         Order order = new Order();
 
+        // Order Placed
         order.printStatus();
 
-        order.updateStatus(OrderStatus.PREPARING);
+        // Move to Preparing
+        order.nextState();
         order.printStatus();
 
+        // Prepare the meal (Template Method)
         meal.prepareMeal();
 
-        order.updateStatus(OrderStatus.DISPATCHED);
+        // Move to Dispatched
+        order.nextState();
         order.printStatus();
-        
-        order.updateStatus(OrderStatus.DELIVERED);
+
+        // Move to Delivered
+        order.nextState();
         order.printStatus();
 
         System.out.println("Order processing completed.");

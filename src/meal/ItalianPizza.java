@@ -1,6 +1,7 @@
 package meal;
 
-public class ItalianPizza extends Meal{
+public class ItalianPizza extends Meal
+{
     @Override
     protected void prepareBase() 
     {
