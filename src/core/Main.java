@@ -1,7 +1,7 @@
 package core;
 
 import meal.Meal;
-import observer.DeliverySystem;
+
 import decorator.ExtraCheese;
 import factory.PizzaFactory;
 
@@ -19,20 +19,24 @@ public class Main
          System.out.println("Order: " + meal.getDescription());
 
         Order order = new Order();
-        DeliverySystem deliverySystem = new DeliverySystem();
-        order.registerObserver(deliverySystem);
 
-        // 'Placed' to 'Preparing' state
+        // Order Placed
+        order.printStatus();
+
+        // Move to Preparing
         order.nextState();
+        order.printStatus();
 
-        // Prepare the meal (Template)
+        // Prepare the meal (Template Method)
         meal.prepareMeal();
 
         // Move to Dispatched
         order.nextState();
+        order.printStatus();
 
         // Move to Delivered
         order.nextState();
+        order.printStatus();
 
         System.out.println("Order processing completed.");
     } 
