@@ -1,7 +1,7 @@
 package core;
 
 import meal.Meal;
-import factory.MealFactory;
+import decorator.ExtraCheese;
 import factory.PizzaFactory;
 
 public class Main 
@@ -11,5 +11,10 @@ public class Main
         //This time Pizza factory only creates Italian Pizza 
         PizzaFactory pizzaFactory = new PizzaFactory();
         Meal meal = pizzaFactory.createMeal();
+
+        //Extra Cheese Topping 
+        meal = new ExtraCheese(meal);
+
+        System.out.println("Order: " + meal.getDescription());
     } 
 }
