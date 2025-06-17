@@ -3,7 +3,7 @@ package meal;
 public abstract class Meal 
 {
 
-    public final void prepareMeal()
+    public void prepareMeal()
     {
         prepareBase();
         waitforNextStep();
